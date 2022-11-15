@@ -1,0 +1,18 @@
+#header .menu-navigation a.active
+{
+    font-weight: 600;
+    color: #282839;
+}
+
+#header .menu-action .search-box
+{
+    width: 105px;
+    padding: 18 0;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+#header .menu-action
+{
+    font-size: 12
+    padding: 0;    
+}
