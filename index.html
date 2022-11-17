@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
           theme: {
@@ -19,10 +21,19 @@
             },
             extend: {
               colors: {
+                netgradientblue: 'linear-gradient(311.76deg, #D4E7FE -15.24%, #FFFFFF 78.85%)',
                 netblue: '#217BF4',
+                netgrey: 'rgba(101, 100, 100)',
+                netlightblue: '#F2F7FE'
               },
               fontFamily : {
                 inter: ["Inter"],
+              },
+              backgroundImage : {
+                'hero': 'linear-gradient(311.76deg, #D4E7FE -15.24%, #FFFFFF 78.85%)',
+                'community' : 'linear-gradient(0deg, rgba(241, 246, 253, 0) 1.63%, #F1F6FD 20.5%, #F1F6FD 58.57%, #FFFFFF 100%)'
+              },
+              dropShadow: {
               }
             }
           }
@@ -31,8 +42,156 @@
     <script src="https://kit.fontawesome.com/e0f8177fe6.js" crossorigin="anonymous"></script>
 </head>
 <body class="text-inter">
-    <section id="navbar" class="bg-sky-100 py-[11px] border-b border-sky-200">
+
+  <section>
+
+    <!-- fixed lg: fixed; -->
+
+  <nav class="px-2 bg-white ">
+   
+
+      <a href="#" class="flex items-center">
+          <img src="img/logo.png" class="flex-col h-6 mr-3 sm:h-10" alt="Flowbite Logo" />
+          <span class="self-center text-xl font-semibold whitespace-nowrap text-white"></span>
+      </a>
+
+      <div class="container flex flex-wrap items-center justify-between mx-auto">
+
+        <div class="flex items-center">
+          <a href="tel:5541251234" class="bg-white mt-5">(555) 412-1234</a>
+          <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+      </div>
+
+      <button data-collapse-toggle="navbar-multi-level" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-multi-level" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-multi-level">
+        <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+          <li>
+            <a href="#" class="bg-white" aria-current="page">Home</a>
+          </li>
+          <li>
+              <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Dropdown <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+              <!-- Dropdown menu -->
+              <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    </li>
+                    <li aria-labelledby="dropdownNavbarLink">
+                      <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
+                      <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
+                          <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+                            <li>
+                              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Overview</a>
+                            </li>
+                            <li>
+                              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My downloads</a>
+                            </li>
+                            <li>
+                              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Billing</a>
+                            </li>
+                            <li>
+                              <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Rewards</a>
+                            </li>
+                          </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                    </li>
+                  </ul>
+                  <div class="py-1">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
+                  </div>
+              </div>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+
+        
+
+              <div class="flex items-center md:order-2">
+                <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center p-2 text-sm text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                  <svg class="w-5 h-5 mr-2 rounded-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900"><path fill="#b22234" d="M0 0h7410v3900H0z"/><path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" stroke-width="300"/><path fill="#3c3b6e" d="M0 0h2964v2100H0z"/><g fill="#fff"><g id="d"><g id="c"><g id="e"><g id="b"><path id="a" d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"/><use xlink:href="#a" y="420"/><use xlink:href="#a" y="840"/><use xlink:href="#a" y="1260"/></g><use xlink:href="#a" y="1680"/></g><use xlink:href="#b" x="247" y="210"/></g><use xlink:href="#c" x="494"/></g><use xlink:href="#d" x="988"/><use xlink:href="#c" x="1976"/><use xlink:href="#e" x="2470"/></g></svg>
+                  English (US)
+                </button>
+                <!-- Dropdown -->
+                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700" id="language-dropdown-menu">
+                  <ul class="py-1" role="none">
+                    <li>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                        <div class="inline-flex items-center">
+                          <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512"><g fill-rule="evenodd"><g stroke-width="1pt"><path fill="#bd3d44" d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)"/><path fill="#fff" d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)"/></g><path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)"/><path fill="#fff" d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z" transform="scale(3.9385)"/></g></svg>              
+                          English (US)
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                        <div class="inline-flex items-center">
+                          <svg class="h-3.5 w-3.5 rounded-full mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-de" viewBox="0 0 512 512"><path fill="#ffce00" d="M0 341.3h512V512H0z"/><path d="M0 0h512v170.7H0z"/><path fill="#d00" d="M0 170.7h512v170.6H0z"/></svg>
+                          Deutsch
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                        <div class="inline-flex items-center">
+                          <svg class="h-3.5 w-3.5 rounded-full mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-it" viewBox="0 0 512 512"><g fill-rule="evenodd" stroke-width="1pt"><path fill="#fff" d="M0 0h512v512H0z"/><path fill="#009246" d="M0 0h170.7v512H0z"/><path fill="#ce2b37" d="M341.3 0H512v512H341.3z"/></g></svg>              
+                          Italiano
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                        <div class="inline-flex items-center">
+                          <svg class="h-3.5 w-3.5 rounded-full mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 512 512"><defs><path id="a" fill="#ffde00" d="M1-.3L-.7.8 0-1 .6.8-1-.3z"/></defs><path fill="#de2910" d="M0 0h512v512H0z"/><use width="30" height="20" transform="matrix(76.8 0 0 76.8 128 128)" xlink:href="#a"/><use width="30" height="20" transform="rotate(-121 142.6 -47) scale(25.5827)" xlink:href="#a"/><use width="30" height="20" transform="rotate(-98.1 198 -82) scale(25.6)" xlink:href="#a"/><use width="30" height="20" transform="rotate(-74 272.4 -114) scale(25.6137)" xlink:href="#a"/><use width="30" height="20" transform="matrix(16 -19.968 19.968 16 256 230.4)" xlink:href="#a"/></svg>
+                          中文 (繁體)
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <button data-collapse-toggle="mobile-menu-language-select" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-language-select" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" aria-hidden="true" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+              </button>
+            </div>
+
+            <div class="flex md:order-2">
+              <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1" >
+                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                <span class="sr-only">Search</span>
+              </button>
+              <div class="relative hidden md:block">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                  <span class="sr-only">Search icon</span>
+                </div>                  
+              
+        </ul>
+      </div>
+    </div>
+  </nav>
+ 
+  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <div id="section-wrapper" class="bg-hero max-h-screen">
+
+    </section>
+      
+      <!-- <section id="navbar" class="py-[11px] border-b border-sky-200">
+        
         <div class="container mx-auto flex items-center justify-between">
+
             <img src="img/logo.png" alt="logo">
             <div class="menu w-1/2">
               <ul class="flex gap-8">
@@ -40,278 +199,376 @@
                 <li class="flex items-center">
                   Community
                   <i class="fa-sharp fa-solid fa-chevron-down ml-[5px] text-[12px]"></i>
-                </li>
+                </li>                         
                 <li>Blog</li>
                 <li>Events</li>
               </ul>
             </div>
-
-
-            <div class="">
-                <!-- <div class="search-box flex"> -->
+            <div class=" w-36 after:content-[''] after:w-full after:h-2 after:bg-slate-600">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" class="bg-transparent" placeholder="Search Here...">
+              <input type="text" class="bg-transparent w-24 outline-none" placeholder="Search Here...">
             </div>
-
-
             <button class="py-4 px-[32px] bg-netblue rounded-xl text-[14px] text-white">Log in</button>
+
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+          
         </div>
-    </section>
-    <section id="hero" class="bg-sky-100 py-[72px] mb-24">
-        <div class="container mx-auto columns-2 flex items-center gap-[69px]">
-          <div class="">
-            <div class="text-netblue mb-5 py-3 px-[30px] bg-sky-200 w-fit rounded-lg">Netbook community</div>
-            <h1 class="text-[56px] mb-[18px] font-bold leading-[66px]">Your Solutions for Community!</h1>
-            <p class="text-[18px] mb-[42px]">More than 2 billion people in over countries use socibook to stay in touch with friends & family.</p>
+      </nav>
+      </section> -->
+      <section id="hero" class="py-[52px] mb-24">
+          <div class="container justify-center lg:justify-between lg:flex-nowrap flex-wrap mx-auto columns-2 flex items-center gap-[69px]">
             <div class="">
-              <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">About Us</button>
-              <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Invite Friend</button>
+              <div class="text-netblue mb-5 py-3 px-[30px] bg-netlightblue w-fit rounded-lg">Netbook community</div>
+              <h1 class="text-[56px] mb-[18px] font-bold leading-[66px]">Your Solutions for Community!</h1>
+              <p class="text-[18px] mb-[42px]">More than 2 billion people in over countries use socibook to stay in touch with friends & family.</p>
+              <div class="">
+                <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-400/30">About Us</button>
+                <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Invite Friend</button>
+              </div>
+            </div>
+            <img class="flex-col" src="img/hero.png" alt="">
+          </div>
+      </section>
+    </div>
+    <section id="join" class="mt-[65px] mb-[65px]">
+      <div class="container flex-wrap mx-auto py-7 flex items-center justify-center">
+        <div class="w-1/3">
+          <p class="text-lg text-netblue pb-[10px]">Whats Netbooks?</p>
+          <h2 class="text-4xl font-bold pb-4">Why Join to Netbook Social Network</h2>
+          <p class="pb-9 text-netgrey">Recent surveys have indicated that small businesses recognise the need they have to connect with consumer.</p>
+          <ul>
+            <li class="text-lg flex items-center gap-3 mb-2">
+              <img src="img/blue eyes.png" alt="bullet" class="rounded-full inline">
+              <span>Groups</span>
+            </li>
+            <li class="text-lg flex items-center gap-3 mb-2">
+              <img src="img/blue eyes.png" alt="bullet" class="rounded-full inline">
+              <span>Messages</span>
+            </li>
+            <li class="text-lg flex items-center gap-3">
+              <img src="img/blue eyes.png" alt="bullet" class="rounded-full inline">
+              <span>Share</span>
+            </li>
+          </ul>
+        </div>
+        <div class="flex justify-center items-center">
+          <img src="img/together.png" alt="" class="mr-[29px]">
+          <div class="">
+            <img src="img/take-comp.png" alt="" class="">
+            <img src="img/cable.png" alt="" class="mt-8">
+          </div>        
+        </div>
+      </div>
+    </section>
+    <section id="achievement" class="py-[75px] mb-[65px]">
+      <div class="flex-wrap lg:flex-nowrap container mx-auto flex justify-between gap-[93px]">
+        <!-- w-2/3 -->
+        <div class="columns-2 w-2/3">
+          <div class="border border-slate-200 shadow-md pl-11 pr-[18px] pt-[46px] pb-10 rounded-2xl mr-6">
+            <div class="mb-8">
+              <i class="fa-regular fa-star text-netblue mr-[10px]"></i>
+              <span class="text-xl">4.8 Rating</span>
+            </div>
+            <div class="flex items-center -ml-3 mb-8 text-lg">
+              <img src="img/people.svg" alt="">
+              <p class="translate-y-[-5px]"><span class="text-netblue">+836k</span> Members</p>
+            </div>
+            <p class="mb-8 text-lg">
+              More than 2 billion we people over countries use socibooks we to stay in touch with friends.
+            </p>
+            <div class="text-netblue">
+              <span class="mr-2 font-[500]">Join Our Community</span>
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
-          <img src="img/hero.png" alt="">
+          <div class="border border-slate-200 shadow-md pl-11 pr-[18px] pt-[46px] pb-10 rounded-2xl h-full">
+            <div class="mb-10">
+              <i class="fa-solid fa-trophy text-netblue mr-[10px]"></i>
+              <span class="text-xl">Awards</span>
+            </div>
+            <div class="flex items-center mb-12 text-lg">
+              <i class="fa-brands fa-github text-red-500 mr-4"></i>
+              <p class="">Best of <span class="text-netblue font-[500]">2021</span> on Github</p>
+            </div>
+            <p class="mb-8 text-lg">
+              More than 2 billion we people over countries use socibooks we to stay in touch with friends.
+            </p>
+            <div class="">
+              <span class="mr-2 font-[500]">Go To Awards</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
         </div>
+        <div class="">
+          <p class="text-lg font-[500] text-netblue mb-[10px]">Our Achievement</p>
+          <h2 class="text-4xl font-bold mb-[18px]">We are Connecting You The Digital Life.</h2>
+          <p class="text-lg mb-[38px]">The scope the Social Media becomes crucial Is helps the business to directly engage with their needs and wants.</p>
+          <button class="py-4 px-[32px] bg-netblue rounded-xl text-white">
+            <span class="text-lg mr-5">Discover Me</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </section>
-    <section id="join">
-      <div class="container mx-auto">
+    <section id="features" class="mb-[70px] pt-[60px] pb-20 bg-community">
+      <div class="container mx-auto mb-16">
+        <div class="mx-auto w-fit text-center">
+          <p class="text-lg text-netblue font-semibold mb-[9px]">Our Community</p>
+          <h2 class="text-4xl font-bold mb-[19px]">Community Main Feature</h2>
+          <p class="text-lg">The wise man therefore always holds in these matters to this principle of selection.</p>
+        </div>
+      </div>
+      <div class="container mx-auto flex flex-wrap gap-11 columns-2">
+        <div class=" bg-white shadow-lg rounded-lg pl-10 pt-10 pb-11 pr-[65px] flex items-start w-[calc(50%-44px)]">
+          <div class="h-[66px] w-[66px] mr-9 bg-netblue rounded-3xl shadow-lg shadow-netblue/30 shrink-0 flex">
+            <img src="img/Members.png" alt="" class="m-auto">
+          </div>
+          <div class="">
+            <h3 class="text-semibold text-2xl font-[600] mb-[14px]">Members, Friends</h3>
+            <p class="text-slate-500">Members, Friends Connection ( like followers ), Private Message</p>
+          </div>
+        </div>
+        <div class=" bg-white shadow-lg rounded-lg pl-10 pt-10 pb-11 pr-[65px] flex items-start w-[calc(50%-44px)]">
+          <div class="h-[66px] w-[66px] mr-9 bg-red-400 rounded-3xl shadow-lg shadow-red-400/30 shrink-0 flex">
+            <img src="img/Groups.png" alt="" class="m-auto">
+          </div>
+          <div class="">
+            <h3 class="text-semibold text-2xl font-[600] mb-[14px]">Groups</h3>
+            <p class="text-slate-500">
+              Your users can create groups to let other users to join and talk
+            </p>
+          </div>
+        </div>
+        <div class=" bg-white shadow-lg rounded-lg pl-10 pt-10 pb-11 pr-[65px] flex items-start w-[calc(50%-44px)]">
+          <div class="h-[66px] w-[66px] mr-9 bg-yellow-400 rounded-3xl shadow-lg shadow-yellow-400/30 shrink-0 flex">
+            <img src="img/Forum.png" alt="" class="m-auto">
+          </div>
+          <div class="">
+            <h3 class="text-semibold text-2xl font-[600] mb-[14px]">Forum</h3>
+            <p class="text-slate-500">Forum is ready by BBPress. Your users can make topics and talk.</p>
+          </div>
+        </div>
+        <div class=" bg-white shadow-lg rounded-lg pl-10 pt-10 pb-11 pr-[65px] flex items-start w-[calc(50%-44px)]">
+          <div class="h-[66px] w-[66px] mr-9 bg-netblue rounded-3xl shadow-lg shadow-netblue/30 shrink-0 flex">
+            <img src="img/Custome.png" alt="" class="m-auto">
+          </div>
+          <div class="">
+            <h3 class="text-semibold text-2xl font-[600] mb-[14px]">Custom Module</h3>
+            <p class="text-slate-500">
+              You can create Members, Groups Module. We already created 3 modules. It's by drag & drop live builder.
+            </p>
+          </div>
+        </div>
+        <div class=" bg-white shadow-lg rounded-lg pl-10 pt-10 pb-11 pr-[65px] flex items-start w-[calc(50%-44px)]">
+          <div class="h-[66px] w-[66px] mr-9 bg-red-400 rounded-3xl shadow-lg shadow-red-400/30 shrink-0 flex">
+            <img src="img/List Builder.png" alt="" class="m-auto">
+          </div>
+          <div class="">
+            <h3 class="text-semibold text-2xl font-[600] mb-[14px]">List Builder</h3>
+            <p class="text-slate-500">Members, Groups list can be modified by drag & drop live builder.</p>
+          </div>
+        </div>
+        <div class=" bg-white shadow-lg rounded-lg pl-10 pt-10 pb-11 pr-[65px] flex items-start w-[calc(50%-44px)]">
+          <div class="h-[66px] w-[66px] mr-9 bg-yellow-400 rounded-3xl shadow-lg shadow-yellow-400/30 shrink-0 flex">
+            <img src="img/List Scroll.png" alt="" class="m-auto">
+          </div>
+          <div class="">
+            <h3 class="text-semibold text-2xl font-[600] mb-[14px]">List Scroll Effects</h3>
+            <p class="text-slate-500">8 different scroll effects are ready.
+              You can always change by your tastes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="team" class="mb-[65px] py-[84px]">
+      <div class="container mx-auto text-center flex flex-col items-center w-1/3 mb-11">
+        <p class="text-lg text-netblue font-[500] mb-[10xpx]">Valueable Team</p>
+        <h2 class="text-4xl font-bold mb-[18px]">Our Active Members</h2>
+        <p class="text-lg text-slate-400 mb-[38px]">when an unknown printer took a galley of type and meeting </p>
+        <p class="text-lg text-slate-400 mb-[38px]">fari scrambled it.</p>
+        <div class="bg-netlightblue rounded-[14px] w-fit flex gap-2 p-2">
+          <button class="py-5 px-[50px] font-[500] hover:underline focus:bg-netblue focus:text-white focus:rounded-[14px] focus:no-underline">Newest</button>
+          <button class="py-5 px-[50px] font-[500] hover:underline focus:bg-netblue focus:text-white focus:rounded-[14px] focus:no-underline">Popular</button>
+          <button class="py-5 px-[50px] font-[500] hover:underline bg-netblue text-white rounded-[14px] no-underline">Active</button>
+
+          <!-- py-4 px-[32px] bg-netblue rounded-xl text-[14px] text-white -->
+
+        </div>
+      </div>
+      <div class="container mx-auto flex justify-between">
+        <div class="py-[30px] px-[52px] w-fit flex flex-col items-center border border-slate-100 rounded-lg hover:shadow-lg hover:scale-105">
+          <div class="mb-[29px] bg-no-repeat bg-center" style="background-image: url('img/BlackHole.png')">
+            <img src="img/Fahim.png" alt="">
+          </div>
+          <div class="w-fit text-center">
+            <h5 class="text-2xl font-semibold">Fahim Rahman</h5>
+            <p class="">@rahman</p>
+          </div>
+        </div>
+        <div class="py-[30px] px-[52px] w-fit flex flex-col items-center border border-slate-100 rounded-lg hover:shadow-lg hover:scale-105">
+          <div class="mb-[29px] bg-no-repeat bg-center" style="background-image: url('./img/BlackHole.png')">
+            <img src="img/Kazi.png" alt="">
+          </div>
+          <div class="w-fit text-center">
+            <h5 class="text-2xl font-semibold">Kazi Rahman</h5>
+            <p class="">@Rahman</p>
+          </div>
+        </div>
+        <div class="py-[30px] px-[52px] w-fit flex flex-col items-center border border-slate-100 rounded-lg hover:shadow-lg hover:scale-105">
+          <div class="mb-[29px] bg-no-repeat bg-center" style="background-image: url(img/BlackHole.png)">
+            <img src="img/Masterero.png" alt="">
+          </div>
+          <div class="w-fit text-center">
+            <h5 class="text-2xl font-semibold">Masterero Ali</h5>
+            <p class="">@Master</p>
+          </div>
+        </div>
+        <div class="py-[30px] px-[52px] w-fit flex flex-col items-center border border-slate-100 rounded-lg hover:shadow-lg hover:scale-105">
+          <div class="mb-[29px] bg-no-repeat bg-center" style="background-image: url(img/BlackHole.png)">
+            <img src="img/Alia.png" alt="">
+          </div>
+          <div class="w-fit text-center">
+            <h5 class="text-2xl font-semibold">Alia Karon</h5>
+            <p class="">@Alia</p>
+          </div>
+        </div>
         
       </div>
     </section>
-
-    <section>
-
-        <div class="justify-between container mx-auto columns-2 flex items-center gap-[69px]">
-            <div class="">
-              <div class="text-netblue">Whats Netbook?</div>
-              <h1 class="text-[56px] mb-[18px] font-bold leading-[66px]">Why Join to Netbook Social Network?</h1>
-              <p class="text-[18px] mb-[42px]">Recent surveys have indicated that small businesses recognise the need they have to connect with consumer.</p>
-              <div class="">
-
-                <li class="text-[40px] mb-[5px] font-bold leading-[35px]">Groups</li>
-
-                <br>
-
-                <li>Massages</li>
-
-                <li>Share</li>
-
-                <!-- <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">About Us</button>
-                <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Invite Friend</button> -->
-              </div>
-            </div>
-
-        <img src="img/together.png" alt="">
-
-        <div class="img-vertical">
-            <img src="img/take-comp.png" alt="">
-            <img src="img/cable.png" alt="" class="mt-8">
-    </div>
-
-
+    <section id="apps" class="justify-center pt-[122px] bg-[#E5F0FD] overflow-hidden mb-[65px]">
+      <div class="container mx-auto flex justify-between relative">
+        <div class="w-1/3">
+          <p class="text-netblue font-[500] mb-[10px]">Get Our Application</p>
+          <h2 class="text-4xl font-bold mb-[18px]">You Can Easily Find This App...!</h2>
+          <p class="text-slate-400 mb-9">
+            I say chap that’s suing lavatory chip shop gosh off his smashing boot are you taking the piss posh loo brilliant.
+          </p>
+          <div class="flex gap-5">
+            <img src="img/App Store.png" alt="appstore">
+            <img class="object-contain" src="img/Play Store.png" alt="playstore">
+          </div>
+        </div>
+        <div class="absolute bottom-[0] right-0">
+          <img src="img/mobile muckup.png" alt="mobile-mockup" class="w-[440px]">
+        </div>
+      </div>
+    </section>
+    <section id="Article" class="py-[34px] mb-[65px]">
+      <div class="container mx-auto mb-20 text-center">
+        <p class="text-netblue text-lg font-[500] mb-[10px]">Get Our Application</p>
+        <h2 class="text-4xl font-bold">Latest News</h2>
+      </div>
+      <div class="container mx-auto flex gap-[75px]">
+        <div class="w-fit">
+          <img src="img/Analyze.png" alt="">
+          <div class="mt-[25px]">
+            <p class="font-[500] mb-6">It Does Not Matter Hows Slowly go as Long</p>
+            <a href="#" class="hover:text-netblue">
+              <span>Continue Reading</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+        <div class="w-fit">
+          <img src="img/Paud.png" alt="">
+          <div class="mt-[25px]">
+            <p class="font-[500] mb-6">Netbook Network Added New Photo Filter</p>
+            <a href="#" class="hover:text-netblue">
+              <span>Continue Reading</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+        <div class="w-fit">
+          <img src="img/Chees.png" alt="">
+          <div class="mt-[25px]">
+            <p class="font-[500] mb-6">We Optimised Netbooks Better Navigation</p>
+            <a href="#" class="hover:text-netblue">
+              <span>Continue Reading</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="footer1" class="pt-[78px] pb-[85px] bg-[#2B2B39]">
+      <div class="container mx-auto flex justify-between">
+        <div class="text-white flex gap-20">
+          <div class="">
+            <h6 class="text-xl font-[500] mb-[22px]">Home</h6>
+            <ul class="flex flex-col gap-[12px] font-[200]">
+              <li><a href="#" class="hover:underline">Home</a></li>
+              <li><a href="#" class="hover:underline">Community</a></li>
+              <li><a href="#" class="hover:underline">Events</a></li>
+              <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h6 class="text-xl font-[500] mb-[22px]">Resources</h6>
+            <ul class="flex flex-col gap-[12px] font-[200]">
+              <li><a href="#" class="hover:underline">Blog</a></li>
+              <li><a href="#" class="hover:underline">News</a></li>
+              <li><a href="#" class="hover:underline">Guides</a></li>
+              <li><a href="#" class="hover:underline">Help Center</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h6 class="text-xl font-[500] mb-[22px]">Community</h6>
+            <ul class="flex flex-col gap-[12px] font-[200]">
+              <li><a href="#" class="hover:underline">News Feed</a></li>
+              <li><a href="#" class="hover:underline">Profile</a></li>
+              <li><a href="#" class="hover:underline">Friends</a></li>
+              <li><a href="#" class="hover:underline">Forums</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h6 class="text-xl font-[500] mb-[22px]">Main Links</h6>
+            <ul class="flex flex-col gap-[12px] font-[200]">
+              <li><a href="#" class="hover:underline">Members</a></li>
+              <li><a href="#" class="hover:underline">Activity</a></li>
+              <li><a href="#" class="hover:underline">Groups</a></li>
+              <li><a href="#" class="hover:underline">Private Group</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="newsletter" class="w-[340px] text-white">
+          <h6 class="text-xl font-[500] mb-[18px]">Subscribe Cirkle Newsletter</h6>
+          <p class="font-[200]">Subscribe to be the first one to know about updates. Enter your email</p>
+          <div class="border border-white rounded-xl flex justify-between mt-8">
+            <input type="email" class="bg-transparent outline-none text-sm text-slate-100 py-[18px] px-6" placeholder="Email Address">
+            <button class="bg-white text-[#2B2B39] py-4 px-6 rounded-lg">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="footer2" class="py-[31px] bg-[#20202D]">
+      <div class="container mx-auto flex justify-between">
+        <p class="text-white">Besnik Creative Agency.</p>
+        <div class="flex items-center">
+          <img src="img/Circle.png" alt="logo" class="mr-[6px]">
+          <p class="text-white text-2xl font-[600]">Netbook</p>
+        </div>
+        <div id="social-media" class="flex gap-2">
+          <div class="bg-white w-9 h-9 flex rounded-full">
+            <i class="fa-brands fa-twitter text-lg text-[#20202D] m-auto"></i>
+          </div>
+          <div class="bg-white w-9 h-9 flex rounded-full">
+            <i class="fa-brands fa-instagram text-lg text-[#20202D] m-auto"></i>
+          </div>
+          <div class="bg-white w-9 h-9 flex rounded-full">
+            <i class="fa-brands fa-facebook-f text-lg text-[#20202D] m-auto"></i>
+          </div>
+          <div class="bg-white w-9 h-9 flex rounded-full">
+            <i class="fa-brands fa-linkedin-in text-lg text-[#20202D] m-auto"></i>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <br>
-
-    <section>
-
-      <div class="justify-between container mx-auto columns-2 flex items-center gap-[69px]">
-        <div class="">
-          <div class="text-netblue">Our Achiefment</div>
-          <h1 class="text-[56px] mb-[18px] font-bold leading-[66px]">We are Connecting You The Digital Life.</h1>
-          <p class="text-[18px] mb-[42px]">The scope the Social Media becomes crucial Is helps the business to directly engage with their needs and wants.</p>
-          <div class="">
-
-
-            <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">Discover Me</button>
-
-            <!-- <li class="text-[40px] mb-[5px] font-bold leading-[35px]">Groups</li>
-
-            <br>
-
-            <li>Massages</li>
-
-            <li>Share</li> -->
-
-            <!-- <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">About Us</button>
-            <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Invite Friend</button> -->
-          </div>
-        </div>
-
-    <img src="img/Rating.png" alt="">
-
-    <div class="img-vertical">
-        <img src="img/Awward.png" alt="" class="mt-8">
-        <!-- <img src="cable.png" alt="" class="mt-8"> -->
-</div>
-     
-      </section>
-
-      <section>
-
-        <div class="justify-center mx-auto columns-2 flex items-center gap-[69px]">
-          <div class="">
-            <div class="text-netblue text-center justify-center flex-center">Our Community</div>
-            <h1 class="text-[56px] mb-[18px] font-bold leading-[66px] text-center">Community Main Feature.</h1>
-            <p class="justify-center text-[18px] mb-[42px] text-center">The wise man therefore always holds in these matters </p>
-            <div>
-            <p class="justify-center text-[18px] mb-[42px] text-center">To this principle of selection. </p>
-            </div>
-            <div class="">
-              <!-- <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">Discover Me</button> -->
-              <!-- <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Invite Friend</button> -->
-            </div>
-          </div>
-
-      </section>
-
-      <section class="justify-center">
-
-        <div class="justify-center flex items-center">
-
-        <img src="img/list.png" alt="" class="justify-center">
-        <img src="img/Custume Module.png" alt="">
-        <!-- <img src="Groups.png" alt=""> -->
-
-        </div>
-
-        <div class="justify-center flex items-center">
-
-          <img src="img/List Builder.png" alt="" class="justify-center">
-          <img src="img/Groups.png" alt="">
-          <!-- <img src="Groups.png" alt=""> -->
-  
-          </div>
-
-          <div class="justify-center flex items-center">
-
-            <img src="img/Forum.png" alt="" class="justify-center">
-            <img src="img/Members.png" alt="">
-            <!-- <img src="Groups.png" alt=""> -->
-    
-            </div>
-
-        <!-- <div class="flex"> -->
-
-          <!-- <img class="flex" src="List Builder.png" alt=""> -->
-          <img src="" alt="">
-          <img src="" alt="">
-
-        <!-- </div> -->
-
-      </section>
-
-      <section>
-
-        <div class="justify-center mx-auto columns-2 flex items-center gap-[69px]">
-          <div class="">
-            <div class="text-netblue text-center">Valuable Team</div>
-            <h1 class="text-[56px] mb-[18px] font-bold leading-[66px] text-center">Our Active Member</h1>
-            <p class="justify-center text-[18px] mb-[42px] text-center">when an unknown printer took a galley of type and meeting</p>
-            <div>
-            <p class="justify-center text-[18px] mb-[42px] text-center">fari scrambled it.</p>
-            </div>
-            <div class="justify-center">
-
-
-
-              <input type="text" class="bg-transparent text-center" placeholder="Newst">
-
-
-              <!-- <div class=""> -->
-                <!-- <div class="search-box flex"> -->
-              <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
-
-
-              <input type="text" class="bg-transparent text-center" placeholder="Populer">
-
-
-            <!-- </div> -->
-
-
-              <!-- <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Newst</button>
-
-              
-              <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Populer</button> -->
-
-              <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">Active</button>
-
-
-              <!-- <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">Discover Me</button> -->
-              <!-- <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Invite Friend</button> -->
-            </div>
-          </div>
-
-      </section>
-
-
-      <section>
-
-        <div class="justify-center flex items-center">
-
-          <img src="img/Ali.png" alt="" class="justify-center">
-          <img src="img/Alia.png" alt="">
-          <img src="img/Fahim.png" alt="">
-          <img src="img/Kazi.png" alt="">
-  
-          </div>
-
-      </section>
-
-
-      <body class="text-inter">
-        <section id="navbar" class="bg-sky-100 py-[11px] border-b border-sky-200">
-            <!-- <div class="container mx-auto flex items-center justify-between">
-                <img src="img/logo.png" alt="logo">
-                <div class="menu w-1/2">
-                  <ul class="flex gap-8">
-                    <li>Home</li>
-                    <li class="flex items-center">
-                      Community
-                      <i class="fa-sharp fa-solid fa-chevron-down ml-[5px] text-[12px]"></i>
-                    </li>
-                    <li>Blog</li>
-                    <li>Events</li>
-                  </ul>
-                </div> -->
-    
-    
-                <!-- <div class=""> -->
-                    <!-- <div class="search-box flex"> -->
-                  <!-- <i class="fa-solid fa-magnifying-glass"></i>
-                  <input type="text" class="bg-transparent" placeholder="Search Here...">
-                </div> -->
-    
-    
-                <!-- <button class="py-4 px-[32px] bg-netblue rounded-xl text-[14px] text-white">Log in</button> -->
-            </div>
-        </section>
-        <section id="hero" class="bg-sky-100 py-[72px] mb-24">
-            <div class="container mx-auto columns-2 flex items-center gap-[69px]">
-              <div class="">
-                <div class="text-netblue">Get Our Application</div>
-                <h1 class="text-[56px] mb-[18px] font-bold leading-[66px]">You Can Easily Find 
-                  This App…!</h1>
-                <p class="text-[18px] mb-[42px]">I say chap that’s suing lavatory chip shop gosh off his smashing boot are you taking the piss posh loo brilliant.</p>
-                <div class="justify-center flex items-center">
-
-                  <img src="img/App Store.png" alt="">
-
-                  <!-- <button class="text-[14px] py-4 px-[32px] text-white bg-netblue rounded-lg mr-[18px] shadow-lg shadow-sky-200">About Us</button> -->
-                  <!-- <button class="text-[14px] py-4 px-[32px] text-netblue border border-netblue rounded-lg">Invite Friend</button> -->
-
-                  <img class="" src="img/Play Store.png">
-
-                </div>
-              </div>
-              <div class="flex items-between">
-              <img src="img/mobile muckup.png" alt="" class="mx-8">
-            </div>
-        </section>
-        <section id="join">
-          <div class="container mx-auto">
-            
-          </div>
-        </section>
-
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
 
 </body>
 </html>
